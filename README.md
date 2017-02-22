@@ -9,7 +9,7 @@ import gql from fql-graphql;
 
 const userQuery = gql`
 	query UserQuery($username: String) {
-        user (id: ["username", $username) {
+        user (id: ["username", $username]) {
             username 
             doc
             person {
