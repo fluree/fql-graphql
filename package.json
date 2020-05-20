@@ -1,6 +1,6 @@
 {
   "name": "fql-graphql",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Conversion utility from graphql to FlureeQL",
   "repository": {
     "type": "git",
@@ -12,22 +12,27 @@
     "graphql"
   ],
   "author": "Fluree, PBC",
-  "license": "EPL-1.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/fluree/fql-graphql/issues"
   },
   "homepage": "https://github.com/fluree/fql-graphql#readme",
-  "main": "lib/index.js",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
   "scripts": {
-    "prepublish": "./node_modules/.bin/babel -d lib src/"
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "test": "npm run build && jest --verbose"
   },
   "dependencies": {
-    "graphql-tag": "^1.2.3"
+    "graphql": "14.6.0"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-core": "^6.22.1",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-stage-2": "^6.22.0"
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1",
+    "microbundle": "^0.11.0"
   }
 }
